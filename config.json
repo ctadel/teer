@@ -1,0 +1,77 @@
+{
+  "Shell Scripts"   :  {
+    "local_path"      : "shell",
+    "exec"            : "bash $DOTFILES_REPOSITORY/shell/add_source.sh",
+    "files"           : {
+          "bashpd.sh"   : ".bashpd"
+        }
+    },
+
+  "Git"       : {
+    "files"    : {
+        "gitconfig"  : ".gitconfig"
+      }
+  },
+
+  "Kitty Terminal"   : {
+    "local_path"      : "kitty",
+    "remote_path"     : "~/.config/kitty"
+  },
+
+  "Yazi File Manager"    : {
+    "local_path"      : "yazi",
+    "remote_path"     : "~/.config/yazi"
+  },
+
+  "Lunar Vim"    : {
+    "local_path"      : "lvim",
+    "remote_path"     : "~/.config/lvim"
+  },
+
+  "Neovim"    : {
+    "local_path" : "nvim",
+    "remote_path": "~/.config/nvim"
+  },
+
+  "Vim"    : {
+    "local_path"      : "nvim",
+    "files": {
+        "init.vim": ".vimrc"
+      }
+  },
+
+  "Postgresql"       : {
+    "files"    : {
+        "psqlrc"  : ".psqlrc"
+      }
+  },
+
+  "LF File Manager"    : {
+    "local_path"      : "lf",
+    "remote_path"     : "~/.config/lf"
+  },
+
+  "Tig"       : {
+    "files"    : {
+        "tigrc"  : ".tigrc"
+      }
+  },
+
+  "Byobu"       : {
+    "local_path"  : "byobu",
+    "remote_path" : "~/.byobu"
+  },
+
+  "FZF Script"       : {
+    "local_path"  : "shell",
+    "remote_path" : "~/usr/bin/",
+    "files"    : {
+        "fzf_script.sh"  : "f"
+      }
+  },
+
+  "Spotify TUI"       : {
+    "local_path"  : "ncspot",
+    "remote_path" : "~/.config/ncspot"
+  }
+}
