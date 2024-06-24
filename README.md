@@ -19,14 +19,15 @@ However, while many have their own dotfiles repositories, there's often a lack o
 
 # Getting Started
 
-1. **Fork the Repository**: Fork the **teer** repository to your own github account.
-2. **Add Your dotfiles**: Add your dotfiles and configurations to the forked repository.
-3. **Make your Configuration File**: Create a *conf.json* file and specify the applications and their configurations to be synced. (See Reference: #configuration)
-4. **Start Syncing**: Utilize the *sync.py* script to synchronize your dotfiles across different systems effortlessly.
+1. **Clone this Repository**: Clone the **teer** repository to your local system.
+2. **Specify Dotfiles Directory**: Add your dotfiles repository path to *parameters.cfg* file.
+3. **Make your own Configuration File**: Create a *config.json* file and specify the applications and their configurations to be synced. (See Reference: #configuration)
+4. **Configure Parameters**: Update the *parameters.cfg* file based on your requirement.
+5. **Start Syncing**: Utilize the *teer.py* script to synchronize your dotfiles across different systems effortlessly.
 ```shell
-python sync.py
+python teer.py
 ```
-5. **Sit Back and Relax**: Based on the instructions written in the configuration file, **teer** will start the synchronization process.
+6. **Sit Back and Relax**: Based on the instructions written in  configuration file, **teer** will start the synchronization process.
 
 
 # Features
@@ -38,7 +39,7 @@ python sync.py
 
 # Configuration
 
-The configuration file **conf.json** follows a structured format to define the source and destination paths for the dotfiles, along with additional instructions for post-syncing operations. Below is an explanation of each property:
+The configuration file **config.json** follows a structured format to define the source and destination paths for the dotfiles, along with additional instructions for post-syncing operations. Below is an explanation of each property:
 
 - **local_path** (string/path):
 	This property specifies the directory within the repository where the application's backup of dotfiles or folders is stored. If not specified, it defaults to the repository's root directory.
@@ -58,9 +59,16 @@ The configuration file **conf.json** follows a structured format to define the s
 Each entry in the configuration file ensures that the corresponding dotfiles are accurately synced from the specified local paths to the designated remote paths, with optional commands executed post-syncing to finalize the setup. This flexible configuration approach makes managing and syncing dotfiles efficient and tailored to individual application needs.
 
 
+# Parameters
+
+The parameters file **parameters.cfg** is any configuration file. It allows you to overwrite all the default values used in the script such as log path, and default remote directory and also set application parameters that are passed as arguments such as Interactive Mode, Force Overwrite, Enable Logs.
+
+All the possible parameters are already available in the *parameters.cfg* file in this repository. In case you mess things up, you can always take refer to original *parameters.cfg* file from [here](https://github.com/ctadel/teer/blob/master/parameters.cfg).
+
+
 ## Sample Configurations
 
-Below are sample entries in the **conf.json** file illustrating various use cases:
+Below are sample entries in the **config.json** file illustrating various use cases:
 
 ```json
 {
