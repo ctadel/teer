@@ -73,5 +73,15 @@
   "Spotify TUI"       : {
     "local_path"  : "ncspot",
     "remote_path" : "~/.config/ncspot"
+  },
+
+  "Kanata"    : {
+    "local_path"  : "kanata",
+    "remote_path" : "~/.config/kanata",
+    "exec"        : "sudo bash $DOTFILES_REPOSITORY/kanata/setup.sh",
+    "files" : {
+        "config.kbd"  : "config.kbd",
+        "kanata.service"  : "kanata.service"
+    }
   }
 }

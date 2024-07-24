@@ -1,3 +1,4 @@
+import re
 import os
 import time
 import shlex
@@ -102,14 +103,24 @@ class Synchronize:
 
             if module.exec and sync_exec:
                 try:
-                    _command = shlex.split(os.path.expandvars(module.exec))
+                    sudo_script = re.match("^echo .* \| sudo \-S", module.exec)
 
-                    stdout, stderr = subprocess.Popen(_command, stdout=subprocess.PIPE,
-                            stderr=subprocess.PIPE, env=os.environ, start_new_session=True
-                        ).communicate()
-                    output = stdout.decode() + stderr.decode()
-                    self.console.description.append(
-                            f'✔ Output for "{module.exec}" in {module.name}:\n{output.strip()}')
+                    if sudo_script:
+                        os.system(module.exec)
+                        self.console.description.append(
+                                f'Executed below script with sudo access:\
+                                \n{os.path.expandvars(module.exec[sudo_script.end()+1:])}'
+                            )
+
+                    else:
+                        _command = shlex.split(os.path.expandvars(module.exec))
+
+                        stdout, stderr = subprocess.Popen(_command, stdout=subprocess.PIPE,
+                                stderr=subprocess.PIPE, env=os.environ, start_new_session=True
+                            ).communicate()
+                        output = stdout.decode() + stderr.decode()
+                        self.console.description.append(
+                                f'✔ Output for "{module.exec}" in {module.name}:\n{output.strip()}')
                     module._synced += 1
 
                 except Exception as e:
