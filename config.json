@@ -20,12 +20,14 @@
 
   "Yazi File Manager"    : {
     "local_path"      : "yazi",
-    "remote_path"     : "~/.config/yazi"
+    "remote_path"     : "~/.config/yazi",
+    "launch_file"     : "yazi.desktop"
   },
 
   "Lunar Vim"    : {
     "local_path"      : "lvim",
-    "remote_path"     : "~/.config/lvim"
+    "remote_path"     : "~/.config/lvim",
+    "launch_file"     : "lvim.desktop"
   },
 
   "Neovim"    : {
@@ -83,5 +85,11 @@
         "config.kbd"  : "config.kbd",
         "kanata.service"  : "kanata.service"
     }
+  },
+
+  "Devils Pie 2"    : {
+    "local_path"      : "devilspie2",
+    "remote_path"     : "~/.config/devilspie2"
   }
+
 }

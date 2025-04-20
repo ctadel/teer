@@ -6,7 +6,7 @@ class Parameter:
     #To support Python 3.8 and earlier versions
     SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 
-    APPLICATION_TITLE = f'{os.uname()[1]} | teer | dotfiles'
+    APPLICATION_TITLE = f'{os.uname()[1]} | dotfiles'
     CONFIG_FILE_PATH = 'config.json'
     DEFAULT_REMOTE_DIRECTORY = '~'
     DOTFILES_REPOSITORY = os.environ.get('DOTFILES_REPOSITORY', '')
@@ -51,10 +51,10 @@ class Parameter:
     def update_params(parser):
         default_schema = Parameter.defaults()
         data_type_mapper = {
-                int: parser.getint,
-                float:parser.getfloat,
-                bool:parser.getboolean,
-                str:parser.get
+                int         : parser.getint,
+                float       : parser.getfloat,
+                bool        : parser.getboolean,
+                str         : parser.get
             }
         for section in default_schema.keys():
             for key, (value, value_type) in default_schema[section].items():
@@ -76,3 +76,32 @@ class Parameter:
                 print("\nOr you can export your dotfiles repo path to $DOTFILES_REPOSITORY")
                 print("export DOTFILES_REPOSITORY=/path/to/dotfiles/repo/")
             exit(1)
+
+
+    @staticmethod
+    def get_application_header():
+        user_title = f"{Parameter.APPLICATION_TITLE[:80]:>80}"
+        return \
+f'''
+                                                                                                 ~
+            ~((-                                                                                [[]                ▒▒▒▒▒▒▒▒▒▒▒▒
+           <[[]-                                                                               -[[]              ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+          -[[[]-                                                                               -[[]            ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+        -^>[[[[>^^^^^=          -*<](<*-               -*<](<*              -^<    =<<^-       -[[]           ▒▒▒▒▒▒▒▒     ▒▒▒▒▒▒▒▒
+       *]]][[[[]]]]]]^       -<[(^==>[[[[^          -([(^==<[[[[>     -<][[[[[[  ^[[[[[[>      -[[]           ▒▒▒▒▒▒▒ ▒▒▒▒▒  ▒▒▒▒▒▒
+          -[[[]-            <[(-      >[[[(        ([]       ([[[(-    --*][[[(~[]<>][[[^      -[[]           ▒▒▒▒▒▒▒ ▒▒▒▒▒▒ ▒▒▒▒▒▒
+          -[[[]-          -[[(        -([[[^     ~[[(         [[[[>       *[[[[]-     ~-       -[[]           ▒▒▒▒▒▒▒  ▒▒▒▒ ▒▒▒▒▒▒▒
+          -[[[]-          [[[<*******^>[[[[<    ~][[>********>[[[[>       *[[[]                -[[]           ▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒▒▒
+          -[[[]-         <[[[(<<<<>>^^^***=     >[[[<<<<<>>^^^***=        *[[[<                -[[]            ▒▒▒▒▒▒ ▒▒▒▒▒▒ ▒▒▒▒▒
+          -[[[]-         [[[[-                 -([[[                      *[[[<                -[[]              ▒▒▒▒ ▒▒▒▒▒▒ ▒▒▒
+          -[[[]-         [[[[*                 -([[[~                     *[[[<                -[[]                ▒▒ ▒▒▒▒▒▒ ▒
+          -[[[]-         >[[[]~                 >[[[[                     *[[[<                -[[]                   ▒▒▒▒▒▒
+          -[[[]-          ][[[[*           =    -([[[[=           -       *[[[<                -[[]                   ▒▒▒▒▒▒
+          -[[[[<     -     <[[[[[<*-   -*([*      <[[[[[<*-   -*<[^       *[[[<                -[[]                  ▒▒▒▒▒▒▒
+           *[[[[[[][]=      ~<[[[[[[[[[[[>-        ~([[[[[[[[[[[<-     -~^][[[[>=~-            -[[]               ▒▒▒▒▒▒▒▒▒▒▒▒▒
+             =>]](*-           -*<]]](^-              -*<]]](^-       ->>^******^^>*           -[[]                 ▒▒▒▒▒▒▒▒▒
+                                                                                               -[[]                   ▒▒▒▒▒▒
+         {user_title}      -[[]                     ▒▒
+                                                                                               -[[]
+                                                                                                 ~
+'''

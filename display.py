@@ -31,7 +31,7 @@ class DisplayManager:
 
 
     def display_title(self):
-        print(P.APPLICATION_TITLE,end='\n'*2)
+        print(P.get_application_header())
 
     def diplay_sync_status(self):
         for module in self.modules.values():
